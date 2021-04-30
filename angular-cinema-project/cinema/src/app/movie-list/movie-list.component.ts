@@ -15,8 +15,8 @@ export class MovieListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getMovies(): void {}
+  getMovies(): void { }
 
-  deleteMovie(id: number): any {}
+  deleteMovie(id: number): any { }
 
 }

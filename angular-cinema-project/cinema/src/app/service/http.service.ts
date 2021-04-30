@@ -17,8 +17,8 @@ export class HttpService {
     return this.http.get<Movie[]>(this.BASE_URL);
   }
 
-  getMovieList(id: number): Observable<Movie> {
-    return this.http.get<Movie>(`${this.BASE_URL}/${id}`);
+  getMovieList(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(this.BASE_URL);
   }
 
 
