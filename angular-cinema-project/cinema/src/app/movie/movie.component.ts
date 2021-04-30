@@ -1,5 +1,5 @@
 import { AfterContentChecked, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {  FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { Movie } from '../model/movie';
 
 @Component({
@@ -19,8 +19,8 @@ export class MovieComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  saveMovie(): any {
-    return {};
+  saveMovie(movie: Movie): any {
+    console.log(movie);
+    return movie;
   }
-
 }

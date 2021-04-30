@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs';
 import { Movie } from '../model/movie';
 
@@ -10,24 +11,19 @@ export class HttpService {
 
   BASE_URL = 'https://tr360-frontend-exam-april.azurewebsites.net/Ha891209/movies';
 
-  constructor(private http: HttpClient) { }
-
-
-  getAll(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(this.BASE_URL);
+  httpOptions = {
+    headers: new HttpHeaders(
+      { 'Content-Type': 'application/json' }
+    )
   }
+
+  constructor(private http: HttpClient) { }
 
   getMovieList(): Observable<Movie[]> {
     return this.http.get<Movie[]>(this.BASE_URL);
   }
 
-
-  deleteMovie(id: number): Observable<Movie> {
-    return this.http.delete<Movie>(`${this.BASE_URL}/${id}`);
+  deleteMovie(id): Observable<Movie> {
+    return this.http.delete<Movie>(`${this.BASE_URL}/${id}`, this.httpOptions);
   }
-
 }
-
-
-
-
